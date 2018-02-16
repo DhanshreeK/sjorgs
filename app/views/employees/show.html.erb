@@ -1,0 +1,43 @@
+      
+    <hr class="page-wide-block">
+
+    <h4 class="m-y-4">Colors</h4>
+
+      <div class="col-md-6">
+        <div class="panel panel-danger panel-dark">
+          <div class="panel-heading">
+            <span class="panel-title">Dark danger</span>
+            <div class="panel-heading-icon"><i class="fa fa-inbox"></i></div>
+          </div>
+          <div class="panel-body">
+			            
+			<p id="notice"><%= notice %></p>
+
+			<div class="col-md-6">
+			  Name:
+			  <%=@employee.name %>
+			</div>
+
+			<div class="col-md-6">
+			  Email:
+			  <%=@employee.email %>
+			</div>
+
+			<div class="col-md-6">
+			  Contact number:
+			  <%=@employee.contact_number %>
+			</div>
+
+			<div class="col-md-6">
+			  Location:
+			  <%=@employee.location %>
+			</div>
+			<div class="col-md-6">
+
+			<%= link_to 'Edit', edit_employee_path(@employee) %> |
+			<%= link_to 'Back', employees_path,class: 'b' %>
+</div>
+          </div>
+        </div>
+        </div>
+        
