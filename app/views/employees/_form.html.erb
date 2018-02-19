@@ -6,7 +6,7 @@
       <div class="panel-body">
         <div class="form-horizontal">
 
-<%= form_with(model: employee, local: true) do |form| %>
+<%= form_with(model: employee, local: true , :html => { :multipart => true }) do |form| %>
   <% if employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -19,21 +19,31 @@
     </div>
   <% end %>
 
+
+
   <div class="form-group">
-            <label for="grid-input-1" class="col-md-3 control-label">Name</label>
+            <label for="grid-input-1" class="col-md-3 control-label">Name<font color="red">*</font></label>
             <div class="col-md-9">
     <%= form.text_field :name, id: :employee_name, class: 'form-control' %>
   </div>
 </div>
+
  <div class="form-group">
-            <label for="grid-input-1" class="col-md-3 control-label">Email</label>
+            <label for="grid-input-1" class="col-md-3 control-label">Employee Number</label>
+            <div class="col-md-9">
+    <%= form.text_field :employee_number, id: :employee_employee_number, class: 'form-control'  %>
+  </div>
+</div>
+
+ <div class="form-group">
+            <label for="grid-input-1" class="col-md-3 control-label">Email<font color="red">*</font></label>
             <div class="col-md-9">
     <%= form.text_field :email, id: :employee_email, class: 'form-control'  %>
   </div>
 </div>
 
  <div class="form-group">
-            <label for="grid-input-1" class="col-md-3 control-label">Employee Number</label>
+            <label for="grid-input-1" class="col-md-3 control-label">Contact Number<font color="red">*</font></label>
             <div class="col-md-9">
     <%= form.text_field :contact_number, id: :employee_contact_number , class: 'form-control' %>
   </div>
@@ -43,6 +53,13 @@
             <label for="grid-input-1" class="col-md-3 control-label">Location</label>
             <div class="col-md-9">
     <%= form.text_field :location, id: :employee_location, class: 'form-control'  %>
+  </div>
+</div>
+
+ <div class="form-group">
+            <label for="grid-input-1" class="col-md-3 control-label">Upload Photo</label>
+            <div class="col-md-9">
+  <%= form.file_field :photo, class: 'form-control' %>
   </div>
 </div>
 
