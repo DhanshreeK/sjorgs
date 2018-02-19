@@ -15,6 +15,7 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
+    @employee.employee_number = Employee.set_employee_number
   end
 
   # GET /employees/1/edit
@@ -69,6 +70,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :email, :contact_number, :location)
+      params.require(:employee).permit(:name, :email, :contact_number, :location, :photo, :employee_number)
     end
 end
