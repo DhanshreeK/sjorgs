@@ -5,9 +5,9 @@
 
     <div class="panel">
       <div class="panel-heading">
-        <div class="panel-title">Customers</div>
+        <div class="panel-title">Members</div>
       </div>
-     <%= link_to 'New Customer', new_customer_path , class: 'btn btn-primary'%>
+     <%= link_to 'New Member', new_customer_path , class: 'btn btn-primary'%>
 
       <div class="panel-body">
 
@@ -15,9 +15,9 @@
           <table class="table table-striped table-bordered" id="datatables">
   <thead>
    <tr class="gradeA">
+    <th>Membership Number</th>
       <th>Name</th>
       <th>State</th>
-      <th>Pincode</th>
       <th>Contact number</th>
       <th>Email</th>
       <th></th>
@@ -29,11 +29,11 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
+        <td><%= customer.membership_number %></td>
         <td><%= customer.name %></td>
         <td><%= customer.state %></td>
         <td><%= customer.contact_number %></td>
         <td><%= customer.email %></td>
-        <td><%= customer.amount %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
