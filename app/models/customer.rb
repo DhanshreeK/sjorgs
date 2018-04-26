@@ -14,11 +14,11 @@ class Customer < ApplicationRecord
     require "json"
    
 	uname = "sjorg.pune@gmail.com"
-	hash = "42abd45a31bd7b1a04b8aefe9eecf52f5249af5291ec2980cf14d368cdaf8125"
-    message = "Welcome to SJ Organization. #{self.name} Your membership Amt. #{self.amount} Received."
-    numbers = self.contact_number
-    sender = "TXTLCL" 
-    requested_url = 'http://api.textlocal.in/send/?' + "username=" + uname + "&hash=" + hash + "&numbers=" + numbers + "&message=" + message + "&sender=" + sender
+    hash = "pqyQynKQv7E-0XwgBO6g6FlMiNosDUam7v0me84l3i"
+    message = "Welcome to SJ Organization. #{self.name} Your membership Amt.#{self.amount} Received."
+    numbers = "#{self.contact_number}"
+    sender = "SJOIND" 
+    requested_url = 'http://api.textlocal.in/send/?' + "apikey=" + hash + "&numbers=" + numbers + "&message=" + message + "&sender=" + sender
     uri = URI.parse(requested_url)
     http = Net::HTTP.start(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
