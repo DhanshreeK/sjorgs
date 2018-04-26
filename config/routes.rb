@@ -15,6 +15,18 @@ Rails.application.routes.draw do
 
   get 'dashboards/index'
 
+  get '/customers/new' => 'customers#new'
+
+  post '/customers' => 'customers#create'
+
+  get '/customers/:id' => 'customers#show'
+
+  get '/customers/:id/edit' => 'customers#edit'
+
+  patch '/customers/:id' => 'customers#update'
+
+  delete '/customers/:id' => 'customers#destroy'
+
   
 
   root to: "dashboards#index"
