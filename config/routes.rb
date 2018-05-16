@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :customers
+  resources :customers do
+    collection { post :import }
+  end
   resources :employees
   devise_for :users
 

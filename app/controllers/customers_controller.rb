@@ -5,6 +5,11 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
+    respond_to do |format|
+      format.html
+      format.csv{send_data @customers.to_csv}
+      format.xls{send_data @customers.to_csv(col_sep: "\t") , filename: 'customers.xls'}
+    end
   end
 
   # GET /customers/1
@@ -35,6 +40,10 @@ class CustomersController < ApplicationController
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
+  end
+  def import
+    Customer.import(params[:file])
+  redirect_to root_url, notice: "Customers imported."
   end
 
   # PATCH/PUT /customers/1
