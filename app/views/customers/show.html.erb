@@ -1,17 +1,23 @@
-      
-    <hr class="page-wide-block">
-
-    <h4 class="m-y-4">Colors</h4>
+<div class="px-content">
+    <div class="page-header">
+      <h1><span class="text-muted font-weight-light"><i class="page-header-icon ion-ios-keypad"></i></span></h1>
+    </div>
 
       <div class="col-md-6">
         <div class="panel panel-danger panel-dark">
           <div class="panel-heading">
-            <span class="panel-title">Dark danger</span>
+            <span class="panel-title">Member Detail</span>
             <div class="panel-heading-icon"><i class="fa fa-inbox"></i></div>
           </div>
           <div class="panel-body">
                   
       <p id="notice"><%= notice %></p>
+
+
+      <div class="col-md-6">
+        MemberShip Number:
+  <%= @customer.membership_number %>
+</div>
 
       <div class="col-md-6">
         Name:
@@ -19,15 +25,15 @@
 </div>
 
   <div class="col-md-6">
-  Address1:
+  Address:
     <%= @customer.address1 %>
 </div>
-
+<!-- 
   <div class="col-md-6">
   Address2:
-    <%= @customer.address2 %>
+    <%#= @customer.address2 %>
 </div>
-
+ -->
   <div class="col-md-6">
   State:
     <%= @customer.state %>
@@ -55,3 +61,7 @@
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
+</div>
+</div>
+</div>
+</div>

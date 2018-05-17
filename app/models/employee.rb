@@ -1,5 +1,5 @@
 class Employee < ApplicationRecord
-	after_save :create_user_account
+ 	after_save :create_user_account
 
    validates :email, presence: true, format: \
   { with: /\A[a-zA-Z0-9._-]+@([a-zA-Z0-9]+\.)+[a-zA-Z]{2,4}+\z/ }

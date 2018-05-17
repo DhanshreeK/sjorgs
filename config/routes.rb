@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :customers
+  resources :customers do
+    collection { post :import }
+  end
   resources :employees
   devise_for :users
 
@@ -14,6 +16,18 @@ Rails.application.routes.draw do
   get 'datatables/index'
 
   get 'dashboards/index'
+
+  get '/customers/new' => 'customers#new'
+
+  post '/customers' => 'customers#create'
+
+  get '/customers/:id' => 'customers#show'
+
+  get '/customers/:id/edit' => 'customers#edit'
+
+  patch '/customers/:id' => 'customers#update'
+
+  delete '/customers/:id' => 'customers#destroy'
 
   
 
