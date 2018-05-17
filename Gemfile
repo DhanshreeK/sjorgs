@@ -19,7 +19,8 @@ gem 'uglifier'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem "paperclip", "~> 5.2.1"
-
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.1.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'roo-xls'

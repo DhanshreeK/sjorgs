@@ -1,12 +1,9 @@
 class Customer < ApplicationRecord
     require 'roo'
 	after_create :send_message
-
-    validates :name , presence:true
-    validates :membership_number, presence:true
-    
-	validates :contact_number, numericality: { only_integer: true }, length: \
-  { minimum: 10, maximum: 11 }, allow_blank: true
+  validates :name , presence:true
+  validates :membership_number, presence:true
+	validates :contact_number, presence: true
  
   def send_message
     require "rubygems"

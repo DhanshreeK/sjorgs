@@ -7,18 +7,19 @@
       <div class="panel-heading">
         <div class="panel-title">Members</div>
       </div>
+        <h4>Import Products</h4>
+        <%= form_tag import_customers_path, multipart: true do %>
+          <%= file_field_tag :file,class: 'form-control' %>
+          <%= submit_tag "Import", class: 'btn btn-info' %>
+        <% end %>
+
             <div class="panel-body">
 
      <%= link_to 'New Member', new_customer_path , class: 'btn btn-primary'%>
 
-        <h4>Import Products</h4>
-        <%= form_tag import_customers_path, multipart: true do %>
-          <%= file_field_tag :file %>
-          <%= submit_tag "Import" %>
-        <% end %>
-
+      <br><br>
         <div class="table-primary">
-          <table class="table table-striped table-bordered" id="datatables">
+          <table class="table table-striped">
             <thead>
              <tr class="gradeA">
               <th>Membership Number</th>
@@ -47,69 +48,10 @@
                 <% end %>
               </tbody>
             </table>
+            <%= will_paginate @customers, :container => false %>
 <br>
 <p>
   Download Report:
   <%= link_to "Excel File" , customers_url(format: "xls") %>
 </p>
 
-
-  <!-- ==============================================================================
-  |
-  |  SCRIPTS
-  |
-  =============================================================================== -->
-
-  <!-- jQuery -->
-
-
-  <script>
-    // -------------------------------------------------------------------------
-    // Initialize DEMO sidebar
-
-    $(function() {
-      pxDemo.initializeDemoSidebar();
-
-      $('#px-demo-sidebar').pxSidebar();
-      pxDemo.initializeDemo();
-    });
-  </script>
-
-  <script type="text/javascript">
-    // -------------------------------------------------------------------------
-    // Initialize DEMO
-
-    $(function() {
-      var file = String(document.location).split('/').pop();
-
-      // Remove unnecessary file parts
-      file = file.replace(/(\.html).*/i, '$1');
-
-      if (!/.html$/i.test(file)) {
-        file = 'index.html';
-      }
-
-      // Activate current nav item
-      $('body > .px-nav')
-        .find('.px-nav-item > a[href="' + file + '"]')
-        .parent()
-        .addClass('active');
-
-      $('body > .px-nav').pxNav();
-      $('body > .px-footer').pxFooter();
-
-      $('#navbar-notifications').perfectScrollbar();
-      $('#navbar-messages').perfectScrollbar();
-    });
-  </script>
-
-  <script>
-    // -------------------------------------------------------------------------
-    // Initialize DataTables
-
-    $(function() {
-      $('#datatables').dataTable();
-      $('#datatables_wrapper .table-caption').text('Some header text');
-      $('#datatables_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
-    });
-  </script>

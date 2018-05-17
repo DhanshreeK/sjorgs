@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
+    @customers = Customer.paginate(:page => params[:page], :per_page => 10)
     respond_to do |format|
       format.html
       format.csv{send_data @customers.to_csv}
