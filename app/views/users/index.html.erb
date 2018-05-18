@@ -11,7 +11,7 @@
       <div class="panel-body">
 
     <div class="table-primary">
-    <table class="table table-striped table-bordered" id="datatables">
+    <table class="table table-striped table-bordered">
       <thead>
         <tr class="gradeA">
           <th>Email</th>
@@ -36,56 +36,3 @@
    </table>
 
 <br>
-
- <script>
-    // -------------------------------------------------------------------------
-    // Initialize DEMO sidebar
-
-    $(function() {
-      pxDemo.initializeDemoSidebar();
-
-      $('#px-demo-sidebar').pxSidebar();
-      pxDemo.initializeDemo();
-    });
-  </script>
-
-  <script type="text/javascript">
-    // -------------------------------------------------------------------------
-    // Initialize DEMO
-
-    $(function() {
-      var file = String(document.location).split('/').pop();
-
-      // Remove unnecessary file parts
-      file = file.replace(/(\.html).*/i, '$1');
-
-      if (!/.html$/i.test(file)) {
-        file = 'index.html';
-      }
-
-      // Activate current nav item
-      $('body > .px-nav')
-        .find('.px-nav-item > a[href="' + file + '"]')
-        .parent()
-        .addClass('active');
-
-      $('body > .px-nav').pxNav();
-      $('body > .px-footer').pxFooter();
-
-      $('#navbar-notifications').perfectScrollbar();
-      $('#navbar-messages').perfectScrollbar();
-    });
-  </script>
-
-  <script>
-    // -------------------------------------------------------------------------
-    // Initialize DataTables
-
-    $(function() {
-      $('#datatables').dataTable();
-      $('#datatables_wrapper .table-caption').text('Some header text');
-      $('#datatables_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
-    });
-  </script>
-
-  
