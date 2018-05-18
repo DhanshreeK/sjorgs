@@ -27,8 +27,12 @@ Rails.application.routes.draw do
 
   delete '/customers/:id' => 'customers#destroy'
 
-  
-
+  resources :users do
+    member do
+      get :change_password
+      patch :update_password
+    end
+  end
   root to: "dashboards#index"
 
 
