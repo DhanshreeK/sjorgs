@@ -43,8 +43,13 @@ class CustomersController < ApplicationController
     end
   end
   def import
+    if params[:file].present?
     Customer.import(params[:file])
-  redirect_to customers_path, notice: "Customers imported."
+    redirect_to customers_path, notice: "Customers imported."
+    else
+       flash[:notice] = "Please Select File"
+       redirect_to customers_path
+    end
   end
 
   # PATCH/PUT /customers/1
