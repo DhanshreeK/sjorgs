@@ -10,6 +10,7 @@ class CustomersController < ApplicationController
       format.csv{send_data @customers.to_csv}
       format.xls{send_data @customers.to_csv(col_sep: "\t") , filename: 'customers.xls'}
     end
+    @customers = Customer.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /customers/1

@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
     require 'roo'
-	after_create :send_message
+	#after_create :send_message
+  
 
     validates :name , presence:true
     validates :membership_number, presence:true
@@ -8,27 +9,42 @@ class Customer < ApplicationRecord
 	validates :contact_number, numericality: { only_integer: true }, length: \
   { minimum: 10, maximum: 11 }, allow_blank: true
  
-  def send_message
-    require "rubygems"
+  #def send_message
+   # require "rubygems"
+    #require "net/https"
+    #require "uri"
+    #require "json"
+   
+	#uname = "sjorg.pune@gmail.com"
+   # hash = "pqyQynKQv7E-0XwgBO6g6FlMiNosDUam7v0me84l3i"
+    #message = "Welcome to SJ Organization. #{self.name} Your membership Amt.#{self.amount} Received."
+    #numbers = "#{self.contact_number}"
+    #sender = "SJOIND" 
+    #requested_url = 'http://api.textlocal.in/send/?' + "apikey=" + hash + "&numbers=" + numbers + "&message=" + message + "&sender=" + sender
+    #uri = URI.parse(requested_url)
+    #http = Net::HTTP.start(uri.host, uri.port)
+    #request = Net::HTTP::Get.new(uri.request_uri)
+    #res = http.request(request)
+    #response = JSON.parse(res.body)
+    #puts (response)
+  #end
+  def self.message_history
+
+         require "rubygems"
     require "net/https"
     require "uri"
     require "json"
-   
-	uname = "sjorg.pune@gmail.com"
-    hash = "pqyQynKQv7E-0XwgBO6g6FlMiNosDUam7v0me84l3i"
-    message = "Welcome to SJ Organization. #{self.name} Your membership Amt.#{self.amount} Received."
-    numbers = "#{self.contact_number}"
-    sender = "SJOIND" 
-    requested_url = 'http://api.textlocal.in/send/?' + "apikey=" + hash + "&numbers=" + numbers + "&message=" + message + "&sender=" + sender
+     
+    requested_url = 'https://api.textlocal.in/get_history_api/?'
+               
     uri = URI.parse(requested_url)
     http = Net::HTTP.start(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
-    res = http.request(request)
+     
+    res = Net::HTTP.post_form(uri, 'apikey' => 'pqyQynKQv7E-0XwgBO6g6FlMiNosDUam7v0me84l3i')
     response = JSON.parse(res.body)
     puts (response)
-  end
-  
-  
+end  
 
 def self.to_csv(options = {})
    CSV.generate(options) do |csv|
