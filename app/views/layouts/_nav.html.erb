@@ -33,12 +33,21 @@
       <li class="px-nav-item">
         <a href="/customers"><i class="px-nav-icon ion-star"></i><span class="px-nav-label">Members</span></a>
       </li>
+       <li class="px-nav-item">
+        <a href="/users"><i class="px-nav-icon ion-star"></i><span class="px-nav-label">Users Profiles</span></a>
+      </li>
       <%elsif current_user.role == 'Employee' %>
 
 
-<li class="px-nav-item">
+       <li class="px-nav-item">
         <a href="/customers"><i class="px-nav-icon ion-star"></i><span class="px-nav-label">Customers</span></a>
       </li>   
+
+     <li class="px-nav-item">
+        <a href="/employees/<%=current_user.id%>/edit"><i class="px-nav-icon ion-star"></i><span class="px-nav-label">Edit Profile</span></a>
+      </li>  
+
+
     </ul>
     <%end%>
   </nav>
