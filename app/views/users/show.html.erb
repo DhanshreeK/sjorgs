@@ -1,0 +1,54 @@
+<div class="px-content">
+    <div class="page-header">
+      <h1><span class="text-muted font-weight-light"><i class="page-header-icon ion-ios-keypad"></i></span></h1>
+    </div>
+
+
+      <div class="col-md-12">
+        <div class="panel panel-danger panel-dark">
+          <div class="panel-heading">
+            <span class="panel-title">User Details</span>
+            <div class="panel-heading-icon"><i class="fa fa-inbox"></i></div>
+          </div>
+          <div class="panel-body">
+
+
+    <div class="box-content">
+    <fieldset>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-1">
+        <div class="form-group">
+          </div>
+          <br>
+          <div class="form-group">
+          <div class="col-sm-4"><b> Role:</b></div>
+          <div class="col-sm-8"><%= @user.role %></div>
+          </div>
+          <br>
+              <div class="form-group">
+          <div class="col-sm-4"><b> Email:</b></div>
+          <div class="col-sm-8"><%= @user.email %></div>
+          </div>
+      </div>
+ </div>
+ </fieldset>
+ </div>
+  <br>
+  <br>
+
+    <% if @user.role.eql? "Admin"%>
+     <%= link_to "Change Password", change_password_user_path(@user), class: "btn btn-primary-link btn-xs"%>
+         <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary-link btn-xs"%>
+      <%else%>
+        <% if current_user.id == @user.id || current_user.id == 1%>
+          <%= link_to "Change Password", change_password_user_path(@user), class: "btn btn-primary-link btn-xs"%>
+            <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary-link btn-xs"%>
+        <%end%>
+      <%end%>
+
+
+ </div>
+ </div>
+
+
+
