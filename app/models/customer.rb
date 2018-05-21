@@ -13,7 +13,7 @@ class Customer < ApplicationRecord
    
 	uname = "sjorg.pune@gmail.com"
     hash = "pqyQynKQv7E-0XwgBO6g6FlMiNosDUam7v0me84l3i"
-    message = "Welcome to SJ Organization. #{self.name} Your membership Amt.#{self.amount} Received."
+    message = "Welcome to SJ Organization. #{self.name} Your Membership Amt. #{self.amount} Received. Your Membership Number is #{self.membership_number}."
     numbers = "#{self.contact_number}"
     sender = "SJOIND" 
     requested_url = 'http://api.textlocal.in/send/?' + "apikey=" + hash + "&numbers=" + numbers + "&message=" + message + "&sender=" + sender
